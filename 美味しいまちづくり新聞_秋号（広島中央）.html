@@ -103,6 +103,9 @@
   .step .ph.two { grid-template-columns: 1fr 1fr; }
   .step .ph img { height: 19mm; }
   .step figcaption { font-size: 8.2pt; }
+  .step figure.side { display: flex; align-items: flex-end; gap: 2.4mm; }
+  .step figure.side img { width: auto; height: 19mm; aspect-ratio: 1522 / 1074; flex: none; }
+  .step figure.side figcaption { margin-top: 0; }
 
   .eatrow { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.6mm; margin-top: 2.2mm; padding-top: 1.8mm; border-top: 1px solid var(--rule); }
   .eatrow img { height: 31mm; }
@@ -190,7 +193,7 @@
       <h4><span class="n">1</span>ロールシートの生地</h4>
       <p>まずはロールケーキの本体、ロールシートから。卵、砂糖、薄力粉、油に牛乳。これらがベースになって生地ができあがります。</p>
       <div class="ph">
-        <figure><img src="アマンドロール素材.jpg" alt="アマンドロールの材料" style="object-position:center 45%"><figcaption>素材をそろえて。</figcaption></figure>
+        <figure class="side"><img src="アマンドロール素材.jpg" alt="アマンドロールの材料"><figcaption>素材をそろえて。<br>MOAの素材を<br>ふんだんに。</figcaption></figure>
       </div>
     </div>
     <div class="step">
