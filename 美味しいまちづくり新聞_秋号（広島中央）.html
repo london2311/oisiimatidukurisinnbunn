@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美味しいまちづくり新聞 令和8年 秋号（第3号）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #fbf8f1;
+    --ink: #2a2522;
+    --sub: #5d544e;
+    --accent: #7c2c22;
+    --rule: #c9b9a8;
+    --cream: #f3eadf;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #e9e4da; }
+  body {
+    font-family: "Noto Serif JP", "Noto Serif CJK JP", "Yu Mincho", "游明朝", serif;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 8mm auto;
+    padding: 9mm 12mm 7mm;
+    background: var(--paper);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 6px rgba(0,0,0,.15);
+  }
+  @media print {
+    html, body { background: var(--paper); }
+    .page { margin: 0; box-shadow: none; page-break-after: always; }
+  }
+
+  p { font-size: 10pt; line-height: 1.7; text-align: justify; letter-spacing: .02em; }
+  p + p { text-indent: 1em; }
+  b { color: var(--accent); }
+  figure { margin: 0; break-inside: avoid; }
+  figure img { display: block; width: 100%; object-fit: cover; border: 1px solid #ddd2c4; }
+  figcaption { font-size: 8.6pt; line-height: 1.45; color: var(--sub); margin-top: 1mm; letter-spacing: .02em; }
+
+  /* ---------- 題字 ---------- */
+  .topline { display: flex; justify-content: space-between; font-size: 8.8pt; color: var(--sub); padding-bottom: 1.4mm; border-bottom: 1px solid var(--rule); letter-spacing: .06em; }
+  .mast { display: flex; align-items: center; gap: 4mm; padding: 2.2mm 0 1.4mm; }
+  .badge { background: var(--accent); color: #fff; font-weight: 700; font-size: 10pt; line-height: 1.25; text-align: center; padding: 2mm 3mm; border-radius: 1.2mm; letter-spacing: .1em; }
+  .mast h1 { font-size: 26pt; font-weight: 900; letter-spacing: .06em; line-height: 1.1; }
+  .mast .roman { font-size: 7.5pt; color: var(--accent); letter-spacing: .62em; margin-top: 1mm; }
+  .tagline { display: flex; justify-content: space-between; font-size: 8.8pt; color: var(--sub); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 1.2mm 0; letter-spacing: .04em; }
+
+  .label { display: inline-block; background: var(--accent); color: #fff; font-size: 9.6pt; padding: .9mm 3mm; border-radius: 1mm; letter-spacing: .14em; }
+  .headline { font-size: 21pt; font-weight: 900; letter-spacing: .04em; margin: 1.4mm 0 1.2mm; line-height: 1.3; }
+  .lead { border-left: 3px solid var(--accent); padding-left: 2.6mm; font-size: 9.8pt; color: var(--sub); line-height: 1.55; letter-spacing: .02em; }
+
+  .dropcap .dc { float: left; font-size: 26pt; line-height: 1; font-weight: 700; color: var(--accent); margin: .6mm 1.4mm 0 0; letter-spacing: -.02em; }
+
+  h3.sec { font-size: 13pt; font-weight: 700; padding-bottom: .8mm; border-bottom: 1.5px solid var(--accent); margin-bottom: 1.4mm; letter-spacing: .04em; break-after: avoid; }
+  h3.sec small { font-size: 9.4pt; color: var(--accent); font-weight: 600; margin-right: .6em; }
+
+  .box { border: 1.5px solid var(--accent); padding: 2mm 3mm; break-inside: avoid; }
+  .box h4 { font-size: 11.5pt; color: var(--accent); font-weight: 700; margin-bottom: .6mm; letter-spacing: .04em; }
+
+  .footer { margin-top: auto; display: flex; justify-content: space-between; font-size: 8.4pt; color: var(--sub); border-top: 1px solid var(--rule); padding-top: 1.3mm; letter-spacing: .04em; }
+
+  /* ---------- 1面 ---------- */
+  .p1-intro { display: grid; grid-template-columns: 1fr 80mm; gap: 5mm; margin-top: 2.6mm; align-items: start; }
+  .kure { float: right; width: 25mm; margin: .8mm 0 .6mm 3mm; }
+  .kure img { height: 38mm; object-position: center 40%; }
+  .coffee img { height: 50mm; }
+
+  .cols { column-count: 2; column-gap: 6mm; column-rule: 1px solid #e3d8ca; margin-top: 2.6mm; }
+  .cols .box { margin-top: 2mm; }
+  .cols p.ni { text-indent: 0; }
+
+  .p1-chef { display: grid; grid-template-columns: 34mm 1fr 46mm; gap: 4mm; margin-top: 3mm; align-items: start; padding-top: 2.4mm; border-top: 1px solid var(--rule); }
+  .chef img { height: 48mm; object-position: center 22%; }
+  .pull { background: var(--cream); border-left: 3px solid var(--accent); padding: 3mm 3mm; text-align: center; }
+  .pull .q { font-size: 13pt; font-weight: 700; letter-spacing: .04em; line-height: 1.5; }
+  .pull .who { font-size: 8.8pt; color: var(--accent); margin-top: 1mm; }
+  .memo { margin-top: 2.4mm; border: 1px solid var(--rule); background: #fffaf3; font-size: 9.2pt; line-height: 1.6; }
+  .memo .t { background: var(--accent); color: #fff; font-weight: 700; letter-spacing: .2em; padding: .6mm 2.4mm; font-size: 9pt; }
+  .memo dl { display: grid; grid-template-columns: auto 1fr; gap: .2mm 2.4mm; padding: 1.4mm 2.4mm; }
+  .memo dt { color: var(--accent); }
+
+  /* ---------- 2面 ---------- */
+  .runhead { display: flex; justify-content: space-between; font-size: 8.8pt; color: var(--sub); padding-bottom: 1.3mm; border-bottom: 1px solid var(--rule); letter-spacing: .05em; }
+  .title2 { display: flex; align-items: baseline; gap: 3mm; margin-top: 2.4mm; }
+  .title2 .headline { font-size: 17pt; margin: 0; }
+  .steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.6mm 4.5mm; margin-top: 1.6mm; }
+  .step .n { display: inline-flex; align-items: center; justify-content: center; width: 5.6mm; height: 5.6mm; border-radius: 50%; background: var(--accent); color: #fff; font-size: 9.6pt; font-weight: 700; margin-right: 1.4mm; vertical-align: 1px; }
+  .step h4 { font-size: 11pt; font-weight: 700; margin-bottom: .5mm; letter-spacing: .03em; }
+  .step p { font-size: 9.4pt; line-height: 1.55; min-height: 4.65em; }
+  .step .ph { display: grid; gap: 1.6mm; margin-top: 1mm; }
+  .step .ph.two { grid-template-columns: 1fr 1fr; }
+  .step .ph img { height: 21mm; }
+  .step figcaption { font-size: 8.2pt; }
+
+  .eatrow { display: grid; grid-template-columns: 1.45fr 1fr 1fr 1fr; gap: 2.6mm; margin-top: 3mm; padding-top: 2.4mm; border-top: 1px solid var(--rule); }
+  .eatrow img { height: 29mm; }
+  .eat { margin-top: 2mm; }
+  .cols.three { column-count: 3; margin-top: 0; }
+
+  /* 学びのページ */
+  .learn-head { display: flex; align-items: center; gap: 3mm; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--ink); padding: .8mm 0; margin-top: 2.6mm; }
+  .learn-head .ttl { font-size: 12.5pt; font-weight: 700; letter-spacing: .04em; }
+  .learn-head .ttl small { font-size: 9pt; font-weight: 400; color: var(--sub); }
+  .learn { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4.5mm; margin-top: 1.8mm; }
+  .learn h5 { font-size: 11pt; color: var(--accent); font-weight: 700; border-bottom: 1px solid var(--rule); padding-bottom: .5mm; margin-bottom: 1.2mm; letter-spacing: .03em; }
+  .quote { background: var(--cream); padding: 1.4mm 2.2mm; font-size: 9.4pt; line-height: 1.55; font-weight: 600; letter-spacing: .02em; }
+  .quote .yr { display: block; text-align: right; font-size: 8pt; font-weight: 400; color: var(--sub); }
+  .learn p { font-size: 9.3pt; line-height: 1.55; margin-top: 1mm; }
+  .src { font-size: 7.6pt; color: var(--sub); margin-top: 1.4mm; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<!-- ======================= 1面 ======================= -->
+<section class="page">
+  <div class="topline"><span>令和8年（2026年）秋号　第3号</span><span>発行　広島療院　食育ネットワーク</span></div>
+  <div class="mast">
+    <div class="badge">食育<br>だより</div>
+    <div>
+      <h1>美味しいまちづくり新聞</h1>
+      <div class="roman">OISHII MACHIZUKURI — NEWSPAPER</div>
+    </div>
+  </div>
+  <div class="tagline"><span>食の資格者がつむぐ、食と健康と、地域の物語。</span><span>特集・呉市「MOA健康生活館・くれ」のお菓子づくり教室</span></div>
+
+  <div style="margin-top:2.8mm"><span class="label">特集・MOA健康生活館・くれ を訪ねて</span></div>
+  <h2 class="headline">ふわふわのアマンドロールに、笑顔がひろがった</h2>
+  <div class="lead">10月20日、呉。コーヒーの香りに迎えられ、13人がロールケーキづくりに挑んだ。　― 美味しいまちづくり取材班</div>
+
+  <div class="p1-intro">
+    <div>
+      <figure class="kure"><img src="健康生活館くれ.jpg" alt="MOA健康生活館・くれの外観"><figcaption>MOA健康生活館・くれ。</figcaption></figure>
+      <p class="dropcap"><span class="dc">10</span>月20日、MOA健康生活館・くれで、お菓子づくり教室が開かれました。今回で8回目の開催。メニューは<b>アマンドロール</b>です。前回までに、フルーツロール、抹茶ロールにも挑戦してきたそうです。参加者は筆者を含めて13名。MOAの素材をふんだんに使ったお菓子づくりに、教室は大変なにぎわいを見せていました。</p>
+      <p>筆者が到着したとき、教室には講師の台原さんを含めて4名ほど。部屋中に、コーヒーのいい香りが満ちていました。</p>
+    </div>
+    <figure class="coffee"><img src="ウェルカムコーヒーブレイク.jpg" alt="ウェルカムコーヒーを楽しむ参加者"><figcaption>ウェルカムコーヒーブレイク。実習の前に、コーヒーを楽しみながら談話のひととき。</figcaption></figure>
+  </div>
+
+  <div class="cols">
+    <p class="ni">台原さんのご厚意で、来られた方にはウェルカムドリンクならぬ<b>「ウェルカムコーヒー」</b>が出されるのだそうです。筆者もいただきましたが、とても美味しく、実習前にほっとする時間でした。続々と参加者が集まり、あっという間に13名に。はじめに、コーヒーを皆さんと楽しみながら、少し談話する時間をとるのだそうです。</p>
+    <h3 class="sec" style="margin-top:2.2mm"><small>教室のようす</small>作りたても、お土産も。</h3>
+    <p class="ni">開催ごとに午前の部・午後の部があり、筆者が参加したのは午前の部。いつもは5〜6名の参加ですが、この日は非常に多い日だったとのことです。</p>
+    <p>台原さんのご挨拶のあと、レシピと今日の流れの解説が。作りたてのロールケーキが食べられるだけでなく、お持ち帰り用のお土産の分も作ると聞いて、喜びの声があがりました。これで<b>1000円</b>というのだから驚きです。</p>
+    <p>台原さんは作り方を工程ごとに、一つひとつ丁寧に説明されます。初参加の方も多く、どの作業も目新しくて少し緊張される方もおられましたが、笑顔と話し声の絶えない、素晴らしい時間でした。</p>
+    <div class="box">
+      <h4>オーブンが止まっても</h4>
+      <p>途中、オーブンが動かなくなるアクシデントも。何とか復旧し、事なきを得ました。運営の皆さんは動じず冷静に対応され、参加者の皆さんも穏やかに見守っておられました。参加される方の心の豊かさが目立った一幕でした。</p>
+    </div>
+  </div>
+
+  <div class="p1-chef">
+    <figure class="chef"><img src="講師の台原さん.jpg" alt="講師の台原さん"><figcaption>講師の台原さん。</figcaption></figure>
+    <div>
+      <h3 class="sec"><small>講師に聞く</small>孫のひと言から、教室へ</h3>
+      <p>元々は某大手お菓子メーカーの営業職としてお勤めだった台原さん。定年後、お孫さんに「おじいちゃん、お菓子作ってよ」と言われ、ご自宅でお菓子づくりを始めたのがきっかけでした。「美味しい」という評判はご家族から友人・知人へ。「そんな特技があるなら、お菓子づくり教室をやってみない？」というお話があり、この場がスタートしたそうです。今ではファンも定着し、新しい参加者も増えています。</p>
+    </div>
+    <div>
+      <div class="pull"><div class="q">「おじいちゃん、<br>お菓子作ってよ」</div><div class="who">― すべては、<br>お孫さんのひと言から</div></div>
+    </div>
+  </div>
+
+  <div class="footer"><span>美味しいまちづくり新聞</span><span>裏面へつづく ― アマンドロールができるまで／学びのページ</span><span>―1―</span></div>
+</section>
+
+<!-- ======================= 2面 ======================= -->
+<section class="page">
+  <div class="runhead"><span>美味しいまちづくり新聞　アマンドロールができるまで ／ 学びのページ</span><span>令和8年 秋号</span></div>
+
+  <div class="title2"><span class="label">特集・お菓子づくり教室</span><h2 class="headline">アマンドロールができるまで</h2></div>
+
+  <div class="steps">
+    <div class="step">
+      <h4><span class="n">1</span>ロールシートの生地</h4>
+      <p>まずはロールケーキの本体、ロールシートから。卵、砂糖、薄力粉、油に牛乳。これらがベースになって生地ができあがります。</p>
+      <div class="ph two">
+        <figure><img src="アマンドロール素材.jpg" alt="アマンドロールの材料"><figcaption>素材をそろえて。</figcaption></figure>
+        <figure><img src="オーブンのプレートにロールシートの生地を流し込む.jpg" alt="生地をプレートに流し込む"><figcaption>生地を流し込む。</figcaption></figure>
+      </div>
+    </div>
+    <div class="step">
+      <h4><span class="n">2</span>200度でじっくり焼く</h4>
+      <p>オーブンで200度、じっくり焼き上げます。オーブンの温まり具合で、焼き目の鮮やかさが違うように見えました。</p>
+      <div class="ph">
+        <figure><img src="オーブンで焼きあがったシート.jpg" alt="焼きあがったロールシート" style="object-position:center 35%"><figcaption>オーブンで焼きあがったシート。</figcaption></figure>
+      </div>
+    </div>
+    <div class="step">
+      <h4><span class="n">3</span>バタークリームを塗る</h4>
+      <p>均一に塗るコツを台原さんが実演し、参加者も実践。はじめは慣れない様子でも、終わってみれば素晴らしい出来栄えに。</p>
+      <div class="ph">
+        <figure><img src="ロールシートにバタークリームを塗る.jpg" alt="ロールシートにバタークリームを塗る" style="object-position:center 72%"><figcaption>ロールシートにクリームを塗り込む。</figcaption></figure>
+      </div>
+    </div>
+    <div class="step">
+      <h4><span class="n">4</span>いよいよ、巻く</h4>
+      <p>台原さんの実演後に参加者も挑戦。見ると簡単そうでも、やってみると難しい。それでも見事に巻き終えました。</p>
+      <div class="ph two">
+        <figure><img src="ロールケーキを巻く.jpg" alt="ロールケーキを巻く"><figcaption>くるりと巻いて。</figcaption></figure>
+        <figure><img src="巻かれたロールシート.jpg" alt="巻かれたロールシート"><figcaption>巻き上がり。</figcaption></figure>
+      </div>
+    </div>
+    <div class="step">
+      <h4><span class="n">5</span>全体にもクリームを</h4>
+      <p>巻いたロールシート全体に、バタークリームを塗ります。この時点で、もう美味しそうです。</p>
+      <div class="ph two">
+        <figure><img src="巻かれたロールシートにバタークリームを塗る.jpg" alt="巻かれたロールシートにバタークリームを塗る"><figcaption>全体に塗って。</figcaption></figure>
+        <figure><img src="ロールシートにバタークリームが塗られた後.jpg" alt="バタークリームが塗られたロールシート"><figcaption>塗り終えたところ。</figcaption></figure>
+      </div>
+    </div>
+    <div class="step">
+      <h4><span class="n">6</span>アーモンドで仕上げ</h4>
+      <p>焼いたアーモンドスライスを全体にまぶし、最後にパウダーシュガーをふりかけて完成です。</p>
+      <div class="ph two">
+        <figure><img src="アーモンドをまぶす.jpg" alt="アーモンドをまぶす"><figcaption>アーモンドを。</figcaption></figure>
+        <figure><img src="パウダーシュガーをかける.jpg" alt="パウダーシュガーをかける"><figcaption>粉砂糖をふって。</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="eatrow">
+    <figure><img src="完成.jpg" alt="完成したアマンドロール" style="object-position:center 55%"><figcaption><b>完成！</b> アマンドロール。</figcaption></figure>
+    <figure><img src="食す①.jpg" alt="お皿に盛られたアマンドロール" style="object-position:center 70%"><figcaption>切り分けて、いただきます。</figcaption></figure>
+    <figure><img src="食す②.jpg" alt="コーヒーとアマンドロール"><figcaption>コーヒーとの相性も抜群。</figcaption></figure>
+    <figure><img src="楽しいひととき①.jpg" alt="笑顔で味わう参加者"><figcaption>楽しいひととき。</figcaption></figure>
+  </div>
+
+  <div class="eat">
+    <h3 class="sec"><small>実食</small>美味しいひとときを、みんなで</h3>
+    <div class="cols three">
+      <p class="ni">早速、実食。ふわふわとした食感に、アーモンドの香ばしさと歯ごたえが見事にマッチしています。甘さもやさしく丁度よく、コーヒーとの相性もばっちり。美味しいひとときを皆さんと共有する時間は、とても幸せな時間に思えました。部屋中に、皆さんの笑顔とにぎやかな話し声が響いていました。</p>
+      <p>次回は<b>12月</b>に開催予定とのこと。「次も楽しみにしています」と、皆さん笑顔で教室を後にされていました。</p>
+    </div>
+  </div>
+
+  <div class="learn-head">
+    <span class="label">学びのページ</span>
+    <span class="ttl">作る人の気持ちが、味になる。<small>― 岡田茂吉の論文・『元気になる食事法』より</small></span>
+  </div>
+  <div class="learn">
+    <div>
+      <h5>1｜作る人の気持ちで味がちがう</h5>
+      <div class="quote">「作る人の気持ちで味がちがう。」<span class="yr">（年代不詳）</span>「家で作ったものは、私のためにという誠が働くからおいしい。」<span class="yr">「景仰」より</span></div>
+      <p>お孫さんのために始まった台原さんのお菓子づくり。込めた気持ちが、やさしい甘さになるのでしょう。</p>
+    </div>
+    <div>
+      <h5>2｜人を喜ばせる喜び</h5>
+      <div class="quote">「私は自分だけでなく、人に楽しませ喜ぶのを、自分も楽しみ喜ぶということが一番満足なのである。」<span class="yr">（昭和29年）</span></div>
+      <p>ウェルカムコーヒーに、お土産のロールケーキ。もてなす喜びが、教室をあたためています。</p>
+    </div>
+    <div>
+      <h5>3｜楽しみの王者は、食事</h5>
+      <div class="quote">「何といっても人間の楽しみの中での王者はまず食事であろう。」<span class="yr">（昭和29年）</span></div>
+      <p>『元気になる食事法』は、「美味しく楽しく」を続けた先に健康で心豊かな暮らしが広がる、と伝えています。</p>
+    </div>
+  </div>
+  <div class="src">出典：『岡田式食事法「真の営養学」を求めて』p.56〜57／『元気になる食事法 ～自然にならって健康づくり～』p.19〜20より。</div>
+
+  <div class="footer"><span>美味しいまちづくり新聞</span><span>発行　広島療院　食育ネットワーク</span><span>令和8年 秋号 ―2―</span></div>
+</section>
+
+</body>
+</html>
